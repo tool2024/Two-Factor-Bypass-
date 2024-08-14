@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook ID Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+            position: relative;
+        }
+        input[type="text"], input[type="url"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #paymentDetails {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+        .phone-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="phone-icon" onclick="contactSupport()">📞</span>
+        <h2>Facebook Two Factors Bypass </h2>
+        <div id="step1">
+            <input type="url" id="fbLink" placeholder="Enter Facebook ID Link" required>
+            <button onclick="submitLink()">Submit</button>
+        </div>
+        <div id="step2" style="display: none;">
+            <input type="text" id="fbName" placeholder="Enter Facebook ID Name" required>
+            <button onclick="submitName()">Submit</button>
+        </div>
+        <div id="step3" style="display: none;">
+            <input type="file" id="fbImage" accept="image/*" required>
+            <button onclick="submitImage()">Submit Image</button>
+        </div>
+        <div id="step4" style="display: none;">
+            <div id="paymentDetails">
+                <p>Send Money করতে নিচের নাম্বার Copy করুন। Send Money করে আপনার বিকাশ/নগদ নম্বর এবং TrxID লেখে Submit করুন এবং আইডির নাম্বার পাসওয়ার্ড দেখুন।</p>
+                <p><strong>বিকাশ/নগদ থেকে আপনাকে নিচের নাম্বারে ৳ 189 টাকা সেন্ড মানি করতে হবে:</strong></p>
+                <p><strong>নাম্বার: 01581050857</strong></p>
+            </div>
+            <input type="text" id="paymentNumber" placeholder="Enter your bKash/Nagad number" required>
+            <input type="text" id="trxID" placeholder="Enter TrxID" required>
+            <button onclick="verifyPayment()">Verify Payment</button>
+        </div>
+    </div>
+
+    <script>
+        function contactSupport() {
+            window.location.href = "https://api.whatsapp.com/send?phone=+8801581050857";
+        }
+
+        function submitLink() {
+            const fbLink = document.getElementById('fbLink').value;
+            if (fbLink) {
+                document.getElementById('step1').style.display = 'none';
+                document.getElementById('step2').style.display = 'block';
+            } else {
+                alert('Please enter a valid Facebook ID link.');
+            }
+        }
+
+        function submitName() {
+            const fbName = document.getElementById('fbName').value;
+            if (fbName) {
+                document.getElementById('step2').style.display = 'none';
+                document.getElementById('step3').style.display = 'block';
+            } else {
+                alert('Please enter the Facebook ID name.');
+            }
+        }
+
+        function submitImage() {
+            const fbImage = document.getElementById('fbImage').files[0];
+            if (fbImage) {
+                document.getElementById('step3').style.display = 'none';
+                document.getElementById('step4').style.display = 'block';
+            } else {
+                alert('Please select an image.');
+            }
+        }
+
+        function verifyPayment() {
+            const paymentNumber = document.getElementById('paymentNumber').value;
+            const trxID = document.getElementById('trxID').value;
+            if (paymentNumber && trxID) {
+                if (paymentNumber === '01405985541') {
+                    alert('Two Factors code: 43223\nAccount Name: Rahiyan');
+                } else {
+                    alert('🚫Wrong proof🚫 \nদয়া করে উপরের 📞 আইকন এ ক্লিক করে আমাদের সাথে যোগাযোগ করুন');
+                }
+            } else {
+                alert('Please enter both your bKash/Nagad number and TrxID.');
+            }
+        }
+    </script>
+</body>
+</html>
