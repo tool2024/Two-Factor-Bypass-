@@ -8,18 +8,22 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            text-align: center;
-            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
+
         .container {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
-            margin: auto;
             position: relative;
         }
+
         input[type="text"], input[type="url"], input[type="file"] {
             width: 100%;
             padding: 10px;
@@ -27,6 +31,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         button {
             padding: 10px 20px;
             background-color: #007bff;
@@ -35,15 +40,18 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
         #paymentDetails {
             text-align: left;
             margin-top: 20px;
             font-size: 14px;
             color: #333;
         }
+
         .phone-icon {
             position: absolute;
             top: 10px;
@@ -56,7 +64,7 @@
 <body>
     <div class="container">
         <span class="phone-icon" onclick="contactSupport()">📞</span>
-        <h2>Facebook Two Factors Bypass </h2>
+        <h2>Facebook Two Factors Bypass</h2>
         <div id="step1">
             <input type="url" id="fbLink" placeholder="Enter Facebook ID Link" required>
             <button onclick="submitLink()">Submit</button>
